@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Spring Boot WebSocket Chat</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .file-preview {
+            max-width: 100%;
+            max-height: 300px;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 560px;
+        }
+        .video-container video {
+            width: 100%;
+            height: auto;
+        }
+        .fullscreen-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .audio-preview {
+            width: 100%;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+<body>
+<div id="username-page" class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <form id="usernameForm">
+                <div class="form-group">
+                    <label for="name">Введите никнейм:</label>
+                    <input type="text" id="name" class="form-control" autocomplete="off"/>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Войти в чат</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="chat-page" class="container d-none">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <ul id="messageArea" class="list-group"></ul>
+            <form id="messageForm" name="messageForm">
+                <div class="form-group">
+                    <input type="text" id="message" class="form-control" autocomplete="off"/>
+                </div>
+                <div class="form-group">
+                    <input type="file" id="fileUpload" accept="image/*,video/*,audio/*" class="form-control-file" />
+                </div>
+                <button type="submit" class="btn btn-primary">Отправить</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.4.0/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script th:src="@{/static/js/main.js}"></script>
+</body>
+</html>
